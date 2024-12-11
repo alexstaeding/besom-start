@@ -1,0 +1,8 @@
+apiVersion: pulumi.com/v1
+kind: Stack
+metadata:
+  name: git
+spec:
+  stack: dev
+  branch: dev
+  projectRepo: "~/Documents/Git/me/besom-start/.git"

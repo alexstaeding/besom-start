@@ -1,0 +1,7 @@
+name: besom-start
+description: A minimal Kubernetes Scala Pulumi program
+runtime: scala
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: https://github.com/VirtusLab/besom/tree/v0.3.2/templates/kubernetes
