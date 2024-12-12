@@ -5,4 +5,4 @@ metadata:
 spec:
   stack: dev
   branch: dev
-  projectRepo: "~/Documents/Git/me/besom-start/.git"
+  projectRepo: "https://github.com/alexstaeding/besom-start"
