@@ -12,6 +12,25 @@ spec:
   stack: dev
   branch: dev
   projectRepo: "https://github.com/alexstaeding/besom-start"
+  workspaceTemplate:
+    spec:
+      podTemplate:
+        # This template is merged with the Pulumi spec, which already specifies containers
+        # noinspection KubernetesMissingKeys
+        spec:
+          initContainers:
+            - name: install-scala-cli-and-plugin
+              image: debian:latest
+              command:
+                - "/bin/sh"
+                - "-c"
+              args:
+                - |
+                  apt-get update && apt-get install -y curl
+                  curl -sSLf https://scala-cli.virtuslab.org/get | sh
+                  curl -fsSL https://get.pulumi.com | sh
+                  export PATH=$PATH:$HOME/.pulumi/bin
+                  pulumi plugin install language scala 0.3.2 --server github://api.github.com/VirtusLab/besom
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
