@@ -1,7 +1,13 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: besom-start
+---
 apiVersion: pulumi.com/v1
 kind: Stack
 metadata:
   name: git
+  namespace: besom-start
 spec:
   stack: dev
   branch: dev
